@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<style>
+    body{
+        font: normal 20pt Arial;
+        background-color: blueviolet;
+        color: white;
+    }
+
+    header {
+   width: 400px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+    .header-menu ul{
+        display: flex;
+        background-color: antiquewhite;
+        text-decoration: none;
+        list-style: none;
+        gap: 20px;
+    }
+    .header-menu ul li a{
+        color: white;
+        text-decoration: none;
+        list-style: none;
+        font-size: 24px;
+
+    }
+</style>
+<body>
+
+<header>
+   <nav class="header-menu">
+    <ul>
+        <li>
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="">Menu</a>
+        </li>
+        <li>
+            <a href="">Our Story</a>
+        </li>
+        <li>
+            <a href="">Contact Us</a>
+        </li>
+    </ul>
+  </nav>
+</header>
+
+    <script>
+
+        var nome = window.prompt('Qual é seu nome?');
+        var time = window.prompt('Qual time voce torce?');
+        var salario = Number.parseFloat(window.prompt('Digite seu salario'))
+        document.write(`Olá ,${nome}.</br>O time que voce torce é o ${time}.</br>Seu nome tem ${nome.length} letras.</br>Seu salario é ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</br>`);
+
+        document.write(`Seu nome em letras maiusculas é ${nome.toUpperCase()}</br>`)
+        var n1= Number(window.prompt('digite um numero'))
+
+        var n2= Number(window.prompt('digite outro numero'))
+
+        var s= n1+n2;
+
+        document.write(`a soma entre ${n1} e ${n2} é ${s}`)
+
+
+    </script>
+</body>
+</html>

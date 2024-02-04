@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <style>
+
+    body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Cor de fundo para o corpo da página */
+        }
+
+        #container {
+            
+            text-align: center;
+            background-color: #fff; /* Cor de fundo para o contêiner */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do contêiner */
+        }
+
+        h1,
+        input,
+        div {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 5px;
+            border: 1px solid #ccc; /* Cor da borda do input */
+            border-radius: 3px;
+            background-color: #f9f9f9; /* Cor de fundo para os inputs */
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50; /* Cor de fundo para o botão */
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049; /* Cor de fundo quando o botão é hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h1>Calculadora de IMC</h1>
+    Informe seu peso: <input type="number" name="txtpeso" id="txtpeso" placeholder="informe seu peso">
+    Informe sua altura: <input type="number" name="txtaltura" id="txtaltura" placeholder="informe sua altura">
+    <input type="button" value="calcular" onclick="calcular()">
+
+    <div id="res"></div>
+</div>
+
+    <script>
+        function calcular() {
+        var txtpeso = window.document.getElementById("txtpeso");
+        var txtaltura = window.document.getElementById("txtaltura");
+        var res = window.document.getElementById("res")
+
+        var peso= Number(txtpeso.value)
+        var altura = Number(txtaltura.value)
+
+        res.innerHTML = `Sua altura é ${altura.toFixed(2)}cm e seu peso é ${peso}kgs</br>`
+
+        var imc = peso / (altura * altura)
+
+        if(imc <18.5){
+            res.innerHTML +=`Seu IMC é ${imc.toFixed(3)}. Peso abaixo do normal!!`
+        } else if(imc >=18.5 && imc <= 24.9){
+            res.innerHTML +=`Seu IMC é ${imc.toFixed(3)}. Peso considerado na faixa saudável!`
+        } else if (imc >=25 && imc <=29.9){
+            res.innerHTML +=`Seu IMC é ${imc.toFixed(3)}. Peso na faixa do sobrepeso!!`
+        } else if (imc >=30 && imc <=34.9){
+            res.innerHTML +=`Seu IMC é ${imc.toFixed(3)}. Peso na faixa da obesidade grau 1!!`
+        } else if (imc >=35 && imc <= 39.9){
+            res.innerHTML +=`Seu IMC é ${imc.toFixed(3)}. Peso na faixa da obesidade grau 2!!`
+        } else{
+            res.innerHTML +=`Seu IMC é ${imc.toFixed(3)}. Peso na faixa da obesidade grau 3!!`
+        }
+        }
+    </script>
+    
+</body>
+</html>

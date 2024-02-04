@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando Números</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+            background-color: rgb(80, 75, 69);
+        }
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+        div#res{
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Contas JavaScript</h1>
+    <h2>Somando Valores</h2>
+    <input type="number" name="soman1" id="soman1"> +
+    <input type="number" name="soman2" id="soman2">
+    <input type="button" value="somar" onclick="somar()">
+    <div id="res">Resultado</div>
+
+    <h2>Subtraindo Valores</h2>
+    <input type="number" name="subtrairn1" id="subtrairn1"> -
+    <input type="number" name="subtrairn2" id="subtrairn2">
+    <input type="button" value="subtrair" onclick="subtrair()">
+    <div id="res2">Resultado</div>
+
+    <h2>Multiplicando Valores</h2>
+    <input type="number" name="multn1" id="multn1"> X
+    <input type="number" name="multn2" id="multn2">
+    <input type="button" value="multiplicar" onclick="multiplicar()">
+    <div id="resmult">Resultado</div>
+
+    <script>
+        function somar() {
+            var tn1 = window.document.getElementById('soman1') 
+            var tn2 = window.document.querySelector('input#soman2')
+            var res = window.document.getElementById('res')
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1 + n2;
+            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${s}</strong>`
+        }
+
+        function subtrair(){
+            var tn1 = window.document.getElementById('subtrairn1')
+            var tn2 = window.document.querySelector('input#subtrairn2')
+            var res = window.document.getElementById('res2')
+            var n1= Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1 - n2
+            res.innerHTML = `A subtração entre ${n1} e ${n2} é igual a <strong> ${s}</strong>`
+        }
+
+        function multiplicar(){
+            var tn1= window.document.getElementById('multn1')
+            var tn2= window.document.getElementById('multn2')
+            var res = window.document.getElementById('resmult')
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1 * n2
+            res.innerHTML = `A multiplicação entre ${n1} e ${n2} é igual a <strong> ${s}</strong>`
+
+        }
+    </script>
+</body>
+</htmnln>
+</htmln2

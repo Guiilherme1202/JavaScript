@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversão de Moeda</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Calculadora de Conversão de Moeda</h1>
+        Valor em moeda de origem: <input type="number" id="valorOrigem" placeholder="Informe o valor">
+        Moeda de origem: <select id="moedaOrigem">
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="BRL">Real Brasileiro (BRL)</option>
+        </select>
+        Moeda de destino: <select id="moedaDestino">
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="BRL">Real Brasileiro (BRL)</option>
+        </select>
+        <button onclick="converter()">Converter</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function converter() {
+            var valorOrigem = document.getElementById("valorOrigem").value;
+            var moedaOrigem = document.getElementById("moedaOrigem").value;
+            var moedaDestino = document.getElementById("moedaDestino").value;
+
+            // Taxas de câmbio fictícias - Substitua por valores reais
+            var taxaUSD = 5.30; // 1 USD = 5.30 BRL
+            var taxaEUR = 6.20; // 1 EUR = 6.20 BRL
+            var taxaBRL = 1.0;  // 1 BRL = 1.0 BRL
+
+            var resultado = 0;
+
+            if (moedaOrigem === "USD") {
+                resultado = valorOrigem * (moedaDestino === "EUR" ? taxaEUR : (moedaDestino === "BRL" ? taxaBRL : taxaUSD));
+            } else if (moedaOrigem === "EUR") {
+                resultado = valorOrigem * (moedaDestino === "USD" ? 1 / taxaEUR : (moedaDestino === "BRL" ? taxaBRL / taxaEUR : 1));
+            } else if (moedaOrigem === "BRL") {
+                resultado = valorOrigem * (moedaDestino === "USD" ? 1 / taxaBRL : (moedaDestino === "EUR" ? taxaEUR / taxaBRL : 1));
+            }
+
+            document.getElementById("resultado").innerHTML = `Resultado: ${resultado.toFixed(2)} ${moedaDestino}`;
+        }
+    </script>
+</body>
+
+</html>
